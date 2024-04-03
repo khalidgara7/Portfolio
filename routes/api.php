@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('informations', 'App\Http\Controllers\InformationController')
+->only(['index', 'store', 'edit', 'update', 'destroy']);
+
+Route::apiResource('formations', 'App\Http\Controllers\FormationController');
+Route::apiResource('experiences', 'App\Http\Controllers\ExperienceController');
