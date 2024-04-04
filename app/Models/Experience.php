@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 class Experience extends Model
 {
     protected $connection = 'mongodb';
-    protected $collection = 'experience';
+    protected $collection = 'experiences';
     protected $fillable = [
         'experience',
         'poste',

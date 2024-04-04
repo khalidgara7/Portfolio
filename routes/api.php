@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\FormationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +18,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')->group( function () {
 
-Route::apiResource('informations', 'App\Http\Controllers\InformationController')
+    Route::apiResource('informations', 'App\Http\Controllers\InformationController')
 ->only(['index', 'store', 'edit', 'update', 'destroy']);
 
-Route::apiResource('formations', 'App\Http\Controllers\FormationController');
-Route::apiResource('experiences', 'App\Http\Controllers\ExperienceController');
+Route::apiResource('formations', FormationController::class);
+Route::apiResource('experiences', ExperienceController::class);
+
+});
+
+
+
+// authentication routes
+Route::post('login', [LoginController::class,'login']);
+Route::post('register', [RegisterController::class , 'register']);

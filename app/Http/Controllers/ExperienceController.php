@@ -14,6 +14,8 @@ class ExperienceController extends Controller
 
     public function store(Request $request)
     {
+        return response()->json('message: Experience created!');
+
         $experience = new \App\Models\Experience();
         $experience->experience = $request->experience;
         $experience->poste = $request->poste;
@@ -23,8 +25,7 @@ class ExperienceController extends Controller
         $experience->end_date = $request->end_date;
         $experience->lieu = $request->lieu;
         $experience->secteur = $request->secteur;
-        $experience->save();
-        return response()->json('message: Experience created!');
+        // $experience->save();
     }
 
     public function edit(string $id)

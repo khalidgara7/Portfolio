@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cookie;
 use \Firebase\JWT\JWT;
-
-
 
 class LoginController extends Controller
 {
-    public function Login(Request $request)
+
+    public function login(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
@@ -40,4 +41,6 @@ class LoginController extends Controller
 
 
     }
+
+
 }

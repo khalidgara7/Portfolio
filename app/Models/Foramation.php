@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Foramation extends Model
 {
     protected $connection = 'mongodb';
-    protected $collection = 'formation';
+    protected $collection = 'formations';
     protected $fillable = [
         'formation',
         'diplome',

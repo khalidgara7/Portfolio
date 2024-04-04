@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Information extends Model
 {
     protected $connection = 'mongodb';
-    protected $collection = 'information';
+    protected $collection = 'informations';
     protected $fillable = [
         'first_name',
         'last_name',
